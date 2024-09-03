@@ -1,0 +1,146 @@
+.pageContainer {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #4f2100, #000000);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: "JetBrains Mono", monospace;
+  padding-top: 30px; /* Adjust this value to decrease the top padding */
+}
+
+.heading {
+  margin-bottom: 20px;
+  font-size: 43px;
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  margin-top: -3px;
+}
+
+.supr {
+  color: #ffffff;
+}
+
+.human {
+  color: #ff7500;
+}
+
+.formContainer {
+  background-color: #000000;
+  padding: 20px;
+  border-radius: 7px;
+  box-shadow: 0 0 20px #61440efc;
+  border: 2.3px solid #ff7500;
+  width: 68%;
+  max-width: 400px;
+  margin-bottom: 20px; /* Adds space between the form container and the button */
+  height: 400px;
+  margin-top: 20px;
+}
+
+.label {
+  color: #ffffff;
+  font-size: 10px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.inputField,
+.selectField {
+  width: 87.2%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2.7px solid #ff7500;
+  background-color: #000000;
+  color: #ff7500;
+  border-radius: 5px;
+  font-size: 10px;
+}
+
+/* Placeholder color for input fields */
+.inputField::placeholder {
+  color: #ff7500; /* Orange color for placeholders */
+}
+
+/* Select Field Styling */
+.selectField {
+  width: 96%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2.7px solid #ff7500;
+  background-color: #000000;
+  color: #ff7500;
+  border-radius: 5px;
+  font-size: 12px;
+  appearance: none; /* Removes the default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff7800d9"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center; /* Adjusts arrow position */
+  background-size: 24px; /* Makes the arrow bigger */
+}
+
+/* Dropdown list styling */
+.selectField option {
+  background-color: #ff7800d9; /* Background color for dropdown options */
+  color: #000000; /* Font color for dropdown options */
+  font-weight: 700; /* Makes the font bolder */
+  border: none;
+  border-bottom: 1px solid #000000; /* Adds a thin black line between options */
+  padding: 8px 10px; /* Adds padding for spacing */
+}
+
+.selectField option:checked {
+  background-color: #000000;
+  color: #ff7800d9;
+}
+
+/* Disclaimer styling */
+.disclaimer {
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  font-family: "JetBrains Mono", monospace;
+  text-align: center; /* Centers the disclaimer text */
+}
+
+.disclaimer strong {
+  color: #ff7500; /* Orange color for disclaimer heading */
+  display: block; /* Forces the disclaimer heading onto its own line */
+  margin-bottom: 1px; /* Adds space between the heading and the content */
+}
+
+/* Updated Next Button */
+.nextButton {
+  width: 50%; /* Matches the width of the form container */
+  max-width: 400px;
+  padding: 15px;
+  background-color: #ff7500;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px #61440efc;
+  cursor: pointer;
+  margin-top: 30px;
+  position: relative; /* Allows positioning of the arrow */
+}
+
+.nextButton .arrow {
+  position: absolute;
+  right: 10px;
+  width: 17px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+}

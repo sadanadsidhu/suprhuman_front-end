@@ -1,0 +1,15 @@
+:root {
+    --font-primary: 'JetBrains Mono', monospace;
+    --font-secondary: 'Poppins', sans-serif;
+  }
+  
+  body {
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+  }
+  
+  .secondaryText {
+    font-family: var(--font-secondary);
+  }
+  

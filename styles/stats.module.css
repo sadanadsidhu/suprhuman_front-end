@@ -1,0 +1,135 @@
+.pageContainer {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #301400, #000000);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'JetBrains Mono', monospace;
+  /* margin-bottom: 30px; */
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin-bottom: -45px;
+  position: relative;
+}
+
+.heading {
+  font-size: 35px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  text-align: center;
+}
+
+.supr {
+  color: #FFFFFF;
+}
+
+.human {
+  color: #FF7500;
+}
+
+.settingsIcon {
+  position: absolute;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.statsGroup {
+  width: 90%;
+  max-width: 400px;
+  margin-top: 30px;
+}
+
+.statsBlockContainer {
+  margin-bottom: 7cqmax;
+  text-align: center;
+}
+
+.statsLabel {
+  color: #FFFFFF;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 600;
+  /* margin-bottom: 20px; */
+  word-spacing: 5px;
+}
+
+.highlight {
+  color: #FF7500;
+}
+
+.statsBlock {
+  background-color: #000000;
+  border: 1.7px solid #FF7500;
+  padding: 13px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px #FF7500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.statsValue {
+  color: #FFFFFF;
+  font-size: 24px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.codeContainer {
+  background-color: #FF7500;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  margin-left: 50px;
+  box-shadow: 0 0 5px #FF7500;
+}
+
+.codeLabel {
+  color: #FFFFFF;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.codeValue {
+  color: #000000;
+  font-size: 20px;
+  font-weight: 900;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.airdropNoticeContainer {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.airdropNotice {
+  color: #FFFFFF;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: -25px;
+  word-spacing: 1px;
+  margin-bottom: 110px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

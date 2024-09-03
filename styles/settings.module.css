@@ -1,0 +1,111 @@
+/* settings.module.css */
+
+.pageContainer {
+    width: 100%;
+    min-height: 95.7vh;
+    background: linear-gradient(to bottom, #1b1b1b, #000000); /* Solid black background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'JetBrains Mono', monospace;
+    padding-top: 30px; /* Added margin at the top of the form container */
+  }
+  
+  .formContainer {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 6px #FF7500;
+    border: 3.1px solid #FF7500;
+    width: 68%;
+    max-width: 400px;
+    margin-top: 40px; /* Extra space at the top */
+
+  }
+  
+  .label {
+    color: #ffffffd9; /* Orange label color */
+    font-size: 10px;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .inputField, .selectField{
+    width: 90.1%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 3.1px solid #FF7500;
+    background-color: #000000;
+    color: #FF7500;
+    border-radius: 5px;
+    font-size: 10px;
+  }
+  
+  /* Placeholder color for input fields */
+  .inputField::placeholder, .selectField::placeholder {
+    color: #FF7500;
+  }
+  
+  /* Select Field Styling */
+  .selectField {
+    width: 99%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 3.1px solid #FF7500;
+    background-color: #000000;
+    color: #FF7500;
+    border-radius: 5px;
+    font-size: 12px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff7800d9"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) center;
+    background-size: 24px;
+  }
+  
+  /* Dropdown list styling */
+  .selectField option {
+    background-color: #FF7500;
+    color: #000000;
+    font-weight: 700;
+    border: none;
+    border-bottom: 1px solid #000000;
+    padding: 8px 10px;
+  }
+  
+  /* Keeps the input field background color the same after selection */
+  .selectField option:checked {
+    background-color: #000000;
+    color: #FF7500;
+  }
+  
+  /* Button Styling */
+  .actionButton {
+    width: 100%; /* Full width of the form container */
+    padding: 12px;
+    margin-bottom: 15px;
+    background-color: #FF7500;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 2px #FF7500;
+    cursor: pointer;
+  }
+  
+  .actionButton:first-of-type {
+    margin-top: 20px; /* Space between top field and first button */
+  }
+  
+  .actionButton:hover {
+    background-color: #FF7500; /* Slightly lighter orange on hover */
+  }
+  

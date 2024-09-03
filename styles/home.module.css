@@ -1,0 +1,416 @@
+.pageContainer {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #301400, #000000);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 60px;
+  padding-bottom: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.heading {
+  font-size: 35px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  text-align: center;
+}
+
+.supr {
+  color: #FFFFFF;
+}
+
+.human {
+  color: #FF7500;
+}
+
+.settingsIcon {
+  position: absolute;
+  right: 0;
+  margin-left: 30px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.characterContainer {
+  text-align: center;
+  position: relative;
+}
+
+.characterImage {
+  width: 350px;
+  height: auto;
+  margin: 5px 0;
+  z-index: 0;
+  position: relative;
+}
+
+/* SuperBoost Container */
+.superBoostContainer {
+  background-color: rgba(128, 128, 128, 0.4);
+  border-radius: 0 150px 150px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 8px; */
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 150px; /* Adjusted width for spacing */
+  margin-left: -25px;
+}
+
+/* Coins Per Min Container */
+.coinsPerMinContainer {
+  background-color: rgba(128, 128, 128, 0.4);
+  border-radius: 150px 0 0 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 8px; */
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 150px; /* Adjusted width for spacing */
+  margin-right: -25px;
+  height: 52px;
+}
+
+.superBoostTextContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20px;
+}
+
+/* .superBoostIconContainer {
+  margin-left: 10px;
+} */
+
+.superBoostLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.coinsPerMinLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.superText {
+  color: #FF7500;
+}
+
+.boostText {
+  color: #FFFFFF;
+}
+
+.comingSoon {
+  font-size: 9px;
+  font-family: 'JetBrains Mono', monospace;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: -8px;
+}
+
+.coinsValue {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: #FF7500;
+  margin-top: -11px;
+  margin-right: 20px;
+}
+
+.superBoostIcon {
+  width: 38px;
+  height: 40px;
+  margin-left: -60px;
+  margin-top: 4px;
+  margin-left: -50px;
+}
+
+.coinsPerMinIcon {
+  width: 38px;
+  height: 48px;
+  margin-left: 10px;
+  margin-top:6px;
+}
+
+.coinsPerMinTextContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* .coinsPerMinIconContainer {
+  margin-right: 10px;
+} */
+
+/* Boost Container */
+.boostContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 85px;
+  left: 0;
+  width: 35px; /* Adjusted width for alignment */
+}
+
+/* Energy Container */
+.energyContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 85px;
+  right: 0;
+  width: 35px; /* Adjusted width for alignment */
+}
+
+.boostLabel {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #FFFFFF;
+
+}
+
+.energyLabel {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.boostIcon {
+  width: 34px;
+  height: 34px;
+  margin-top: 6px;
+  margin-top: -7px;
+}
+
+.energyValue {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #FFFFFF;
+  margin-top: -7px;
+}
+
+.coinsContainer {
+  background-color: #000000;
+  border: 1px solid #FF7500;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #FF7500;
+  width: 60%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ .valueContainer {
+  background-color: #000000;
+  border: 1px solid #FF7500;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #FF7500;
+  width: 80%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  margin-left: 35px;
+  position: relative;
+}
+
+.coinsLabel, .timeLabel {
+  color: #FF7500;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+}
+.coinsLabel2 {
+  color: #FFFFFF;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+}
+
+/* .valueLabel {
+  color: #FF7500;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+} */
+
+.timeContainer {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.coinsEarned {
+  color: #FFFFFF;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  margin-top: -70px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Modal Styling */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: #000000;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 6px #FF7500;
+  border: 3.1px solid #FF7500;
+  width: 68%;
+  max-width: 400px;
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.formContainer {
+  margin-top: 40px;
+}
+
+.label {
+  color: #ffffffd9;
+  font-size: 10px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.inputField, .selectField {
+  width: 90.1%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 3.1px solid #FF7500;
+  background-color: #000000;
+  color: #FF7500;
+  border-radius: 5px;
+  font-size: 10px;
+}
+
+.inputField::placeholder, .selectField::placeholder {
+  color: #FF7500;
+}
+
+.selectField {
+  width: 99%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 3.1px solid #FF7500;
+  background-color: #000000;
+  color: #FF7500;
+  border-radius: 5px;
+  font-size: 12px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff7800d9"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+  background-size: 24px;
+}
+
+.selectField option {
+  background-color: #FF7500;
+  color: #000000;
+  font-weight: 700;
+  border: none;
+  border-bottom: 1px solid #000000;
+  padding: 8px 10px;
+}
+
+.selectField option:checked {
+  background-color: #000000;
+  color: #FF7500;
+}
+
+
+.actionButton {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  background-color: #FF7500;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 2px #FF7500;
+  cursor: pointer;
+}
+
+.actionButton:hover {
+  background-color: #FF7500;
+}
+
+.coinPerTap {
+  position: absolute;
+  width: 30px; /* Adjust as needed */
+  height: 40px; /* Adjust as needed */
+  pointer-events: none; /* To prevent further clicks on the coin */
+  animation: fadeOut 0.8s ease-out forwards; /* Add 'forwards' to retain the last keyframe */
+  z-index: 1001; /* Ensure it's above other elements */
+}
+
+@keyframes fadeOut {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+

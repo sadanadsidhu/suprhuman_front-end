@@ -1,0 +1,177 @@
+.pageContainer {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #682b00, #00253f);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'JetBrains Mono';
+  padding-bottom: 30px;
+}
+
+.heading {
+  margin-bottom: 20px;
+  font-size: 45px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Poppins';
+  font-weight: 800;
+  font-style: italic;
+  
+}
+
+.supr {
+  color: #FFFFFF;
+}
+
+.human {
+  color: #FF7500;
+}
+
+.iconsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  margin-top: -19px;
+}
+
+.iconImage {
+  width: 135px;
+  height: 45px;
+}
+
+.earthCharacterContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: -12px;
+}
+
+.earthImage {
+  width: 90%;
+  max-width: 500px;
+  position: absolute;
+}
+
+.characterImage {
+  margin-top: 25px;
+  width: 83%;
+  max-width: 400px;
+  position: relative;
+  z-index: 1;
+}
+
+.textContainer {
+  text-align: center;
+  margin-bottom: 5px; 
+  line-height: 0.3; 
+  margin-top: -15px;
+}
+
+.orangeText {
+  color: #FF7500;
+  font-weight: bold;
+  font-size: 23px;
+}
+
+.whiteText {
+  color: #FFFFFF;
+  font-size: 23px;
+  font-weight: bolder;
+}
+
+.blueText {
+  color: #026cbe;
+  font-size: 23px;
+  font-weight: bolder;
+  /* letter-spacing: 0px; */
+}
+.blueText2 {
+  color: #026cbe;
+  font-size: 13px;
+  font-weight: bolder;
+  /* margin-bottom: 10px; */
+}
+
+
+.lineContainer {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.line {
+  height: 4px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  box-shadow:0 0 5px #ffffff;
+  transition: width 5s linear; /* Smoothly transition the width over 5 seconds */
+  transform: translateY(-50%); /* Center the line vertically */
+  display: flex; /* Use flex to position the dot */
+  justify-content: flex-end; /* Place the dot at the end of the line */
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  background-color: #ffffff;
+  border-radius: 100%;
+  position: absolute;
+  top: 80%; 
+  transform: translate(50%, -70%);
+  margin-top: -8px;
+  box-shadow:0 0 5px #ffffff;
+}
+
+
+/* Footer Icon Styling */
+.iconWrapper {
+  background-color: #ffffff;
+  padding: 3px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconWrapper1 {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -2px;
+}
+
+.footerIcon {
+  width: 28px;
+  height: 28px;
+}
+
+.footerIconsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: rgba(138, 138, 138, 0.5); /* Made background semi-transparent */
+  padding: 7px;
+  border-radius: 15px;
+  width: 210px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+.footerIcon {
+  width: 30px;
+  height: 30px;
+}
+.footerIcon1 {
+  width: 35px;
+  height: 34px;
+}
