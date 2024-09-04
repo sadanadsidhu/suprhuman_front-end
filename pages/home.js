@@ -7,12 +7,12 @@ import FirstFifty from "./first-fifty";
 export default function Home() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [coinPosition, setCoinPosition] = useState(null);
-  const [coins, setCoins] = useState(0); // State for coins
+  const [coins, setCoins] = useState(0);
   const [characterImage, setCharacterImage] = useState("/avatar1.png");
   const [energy, setEnergy] = useState({ current: 0, max: 1000 });
   const [timer, setTimer] = useState("00:00:00");
   const [coinsPerMinute, setCoinsPerMinute] = useState(0);
-  const [coinsEarnedToday, setCoinsEarnedToday] = useState(0); // State for coins earned today
+  const [coinsEarnToday, setCoinsEarnedToday] = useState(0);
   const [isFirstFiftyOpen, setIsFirstFiftyOpen] = useState(false);
 
   const toggleSettingsModal = () => {
@@ -34,9 +34,20 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const isFirstFifty = true;
-    if (isFirstFifty) {
+    const firstFiftyShown =
+      typeof window !== "undefined" && localStorage.getItem("firstFiftyShown");
+
+    if (!firstFiftyShown) {
       setIsFirstFiftyOpen(true);
+      typeof window !== "undefined" &&
+        localStorage.setItem("firstFiftyShown", "true");
+    }
+
+    // Retrieve coinsEarnedToday from localStorage
+    const storedCoinsEarnedToday =
+      typeof window !== "undefined" && localStorage.getItem("coinsEarnToday");
+    if (storedCoinsEarnedToday) {
+      setCoinsEarnedToday(Number(storedCoinsEarnedToday));
     }
   }, []);
 
@@ -51,11 +62,12 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userId = localStorage.getItem("userId");
+        const userId =
+          typeof window !== "undefined" && localStorage.getItem("userId");
 
         if (userId) {
           const response = await axios.get(
-            `http://localhost:8080/get/user/${userId}`
+            `http://88.222.242.108:8080/get/user/${userId}`
           );
 
           const fetchedCoins = Number(response.data.user.signupCoin) || 0;
@@ -74,10 +86,13 @@ export default function Home() {
           const fetchedCoinsPerMinute = response.data.user.coinsPerMinute || 0;
           setCoinsPerMinute(fetchedCoinsPerMinute);
 
-          // Correctly set coinsEarnedToday
           const fetchedCoinsEarnedToday =
-            Number(response.data.user.coinsEarnedToday) || 0;
+            Number(response.data.user.coinsEarnToday) || 0;
           setCoinsEarnedToday(fetchedCoinsEarnedToday);
+
+          // Also update localStorage
+          typeof window !== "undefined" &&
+            localStorage.setItem("coinsEarnToday", fetchedCoinsEarnedToday);
         } else {
           console.warn("User ID not found in localStorage");
         }
@@ -92,20 +107,28 @@ export default function Home() {
   useEffect(() => {
     const updateCoins = async () => {
       try {
-        const userId = localStorage.getItem("userId");
+        const userId =
+          typeof window !== "undefined" && localStorage.getItem("userId");
         if (userId) {
-          // Using functional state updates to avoid stale closure issues
-
           setCoinsEarnedToday((prevCoinsEarned) => {
             const newCoinsEarnedToday = prevCoinsEarned + coinsPerMinute;
+
+            // Update localStorage
+            typeof window !== "undefined" &&
+              localStorage.setItem("coinsEarnToday", newCoinsEarnedToday);
+
             // Send PUT request to update coins earned today
             axios
-              .put(`http://localhost:8080/update/coins/earntoday/${userId}`, {
-                coinsEarnedToday: newCoinsEarnedToday,
-              })
+              .put(
+                `http://88.222.242.108:8080/update/coins/earntoday/${userId}`,
+                {
+                  coinsEarnToday: newCoinsEarnedToday,
+                }
+              )
               .catch((error) => {
                 console.error("Error updating coins earned today:", error);
               });
+
             return newCoinsEarnedToday;
           });
         } else {
@@ -119,7 +142,7 @@ export default function Home() {
     const intervalId = setInterval(updateCoins, 60000); // Update every minute
 
     return () => clearInterval(intervalId);
-  }, [coinsPerMinute]); // Removed coinsEarnedToday from dependency array
+  }, [coinsPerMinute]);
 
   // Update timer
   useEffect(() => {
@@ -139,14 +162,15 @@ export default function Home() {
 
   const handleCharacterImageClick = async () => {
     try {
-      const userId = localStorage.getItem("userId");
+      const userId =
+        typeof window !== "undefined" && localStorage.getItem("userId");
       if (!userId) {
         console.warn("User ID not found in localStorage");
         return;
       }
 
       const response = await axios.put(
-        `http://localhost:8080/update/coin/${userId}`
+        `http://88.222.242.108:8080/update/coin/${userId}`
       );
       if (response.status === 200) {
         const updatedUser = response.data.updatedUser;
@@ -245,7 +269,7 @@ export default function Home() {
         <p className={styles.coinsEarned}>COINS EARNED TODAY</p>
 
         <div className={styles.valueContainer}>
-          <p className={styles.coinsLabel2}>{coinsEarnedToday}</p>
+          <p className={styles.coinsLabel2}>{coinsEarnToday}</p>
         </div>
 
         <div className={styles.timeContainer}>
