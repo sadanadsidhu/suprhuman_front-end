@@ -64,11 +64,7 @@ export default function Upgrade() {
     if (!userId || !selectedItem) return;
 
     try {
-      const upgradeId = "66d7368365a71a07bd6b1a67"; // Ensure this ID is available
-      const enhancementId = selectedItem._id; // Use selectedItem._id for enhancementId
-
-      // Ensure coinMin is an integer
-      const coinMinAsInteger = Math.floor(selectedItem.coinMin);
+      const coinMinAsInteger = Math.floor(selectedItem.coinMin); // Ensure coinMin is an integer
 
       // Update user coin
       const coinResponse = await fetch(
@@ -80,7 +76,7 @@ export default function Upgrade() {
           },
           body: JSON.stringify({
             userId,
-            coinsPerMinute: coinMinAsInteger,
+            coinMin: coinMinAsInteger,
           }),
         }
       );
@@ -88,34 +84,90 @@ export default function Upgrade() {
       if (!coinResponse.ok) {
         throw new Error("Failed to update coin.");
       }
-      // Call the second API to update the enhancement
-      const upgradeResponse = await fetch(
-        `http://localhost:8080/update/upgrade/${upgradeId}/${enhancementId}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            level: selectedItem.level,
-            cost: selectedItem.cost,
-            coinMin: coinMinAsInteger, // Use the integer value here
-          }),
-        }
-      );
 
-      if (!upgradeResponse.ok) {
-        throw new Error("Failed to update upgrade.");
+      // Conditionally handle the updates based on activeTab
+      if (activeTab === "ENHANCEMENT") {
+        const upgradeId = "66d7368365a71a07bd6b1a67"; // Ensure this ID is available
+        const enhancementId = selectedItem._id; // Use selectedItem._id for enhancementId
+
+        const upgradeResponse = await fetch(
+          `http://localhost:8080/update/upgrade/${upgradeId}/${enhancementId}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              level: selectedItem.level,
+              cost: selectedItem.cost,
+              coinMin: coinMinAsInteger,
+            }),
+          }
+        );
+
+        if (!upgradeResponse.ok) {
+          throw new Error("Failed to update enhancement.");
+        }
+
+        console.log("Enhancement updated successfully.");
+      } else if (activeTab === "RESTRAINTS") {
+        const restrintId = "66d741a4e2d5d3bc326e0c98"; // Main Restrint document ID
+        const specificRestrintId = selectedItem._id; // Specific RESTRAINTS item ID
+
+        const restrintResponse = await fetch(
+          `http://localhost:8080/update/restrint/${restrintId}/${specificRestrintId}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              level: selectedItem.level,
+              cost: selectedItem.cost,
+              coinMin: coinMinAsInteger,
+            }),
+          }
+        );
+
+        if (!restrintResponse.ok) {
+          throw new Error("Failed to update restrint.");
+        }
+
+        console.log("Restraint updated successfully.");
+      } else if (activeTab === "SUPR UPGRADE") {
+        const supergradeId = "66d74ba8eb8517d44fd2d167"; // Main Supergrade document ID
+        const specificSupergradeId = selectedItem._id; // Specific SUPRUPGRADE item ID
+
+        const supergradeResponse = await fetch(
+          `http://localhost:8080/update/supergrad/${supergradeId}/${specificSupergradeId}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              level: selectedItem.level,
+              cost: selectedItem.cost,
+              coinMin: coinMinAsInteger,
+            }),
+          }
+        );
+
+        if (!supergradeResponse.ok) {
+          throw new Error("Failed to update supergrade.");
+        }
+
+        console.log("Supergrade updated successfully.");
       }
 
       // Handle success
-      console.log("Upgrade and coin updated successfully.");
       fetchData(); // Refresh the data to reflect changes
       setSelectedItem(null); // Close the pop-up
     } catch (error) {
-      console.error("Error updating coin and upgrade:", error);
+      console.error("Error updating coin and selected upgrade:", error);
     }
   };
+
   const renderDivs = () => {
     let itemsToRender;
 
