@@ -1,196 +1,121 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/upgrade.module.css";
 import Footer from "./footer";
 import { useRouter } from "next/router";
-
-const enhancements = [
-  {
-    id: 1,
-    name: "HONESTY",
-    icon: "/images/enhancements/honesty.png",
-    coinMin: "+8",
-    level: 1,
-    cost: "1.4k",
-    quote: "BEING TRUTHFUL AND TRANSPARENT IN WORDS AND ACTIONS.",
-  },
-  {
-    id: 2,
-    name: "KINDNESS",
-    icon: "/images/enhancements/kindness.png",
-    coinMin: "+11",
-    level: 1,
-    cost: "2.2k",
-    quote: "FACING FEARS AND CHALLENGES BRAVELY AND WITH DETERMINATION.",
-  },
-  {
-    id: 3,
-    name: "COURAGE",
-    icon: "/images/enhancements/courage.png",
-    coinMin: "+10",
-    level: 1,
-    cost: "2k",
-    quote: "REMAINING CALM AND COMPOSED IN THE FACE OF DELAYS OR DIFFICULTIES.",
-  },
-  {
-    id: 4,
-    name: "INTEGRITY",
-    icon: "/images/enhancements/integrity.png",
-    coinMin: "+18",
-    level: 1,
-    cost: "2.5k",
-    quote: "FEELING AND EXPRESSING THANKFULNESS AND APPRECIATION.",
-  },
-  {
-    id: 5,
-    name: "PATIENCE",
-    icon: "/images/enhancements/patience.png",
-    coinMin: "+12",
-    level: 1,
-    cost: "1.8k",
-    quote: "WILLINGNESS TO GIVE AND SHARE FREELY WITH OTHERS.",
-  },
-  {
-    id: 6,
-    name: "GRATITUDE",
-    icon: "/images/enhancements/gratitude.png",
-    coinMin: "+21",
-    level: 1,
-    cost: "1.2k",
-  },
-  {
-    id: 7,
-    name: "GENEROSITY",
-    icon: "/images/enhancements/generosity.png",
-    coinMin: "+20",
-    level: 1,
-    cost: "1.5k",
-  },
-  {
-    id: 15,
-    name: "FLEXIBILITY",
-    icon: "/images/enhancements/.png",
-    coinMin: "+10",
-    level: 1,
-    cost: "1.8k",
-  },
-  {
-    id: 16,
-    name: "CREATIVITY",
-    icon: "/images/enhancements/creativity.png",
-    coinMin: "+8",
-    level: 1,
-    cost: "1.6k",
-  },
-  {
-    id: 17,
-    name: "DEPENDABILITY",
-    icon: "/images/enhancements/dependability.png",
-    coinMin: "+11",
-    level: 1,
-    cost: "1.9k",
-  },
-];
-
-const restraints = [
-  {
-    id: 1,
-    name: "ARROGANCE",
-    icon: "/images/restraints/arrogance.png",
-    coinMin: "+6",
-    level: 1,
-    cost: "1.8k",
-  },
-  {
-    id: 2,
-    name: "SELFISHNESS",
-    icon: "/images/restraints/selfishness.png",
-    coinMin: "+11",
-    level: 1,
-    cost: "2.9k",
-  },
-  {
-    id: 3,
-    name: "SADISM",
-    icon: "/images/restraints/sadism.png",
-    coinMin: "+8",
-    level: 1,
-    cost: "1.8k",
-  },
-  {
-    id: 4,
-    name: "SADISM",
-    icon: "/images/restraints/sadism.png",
-    coinMin: "+8",
-    level: 1,
-    cost: "1.8k",
-  },
-  {
-    id: 5,
-    name: "SADISM",
-    icon: "/images/restraints/sadism.png",
-    coinMin: "+8",
-    level: 1,
-    cost: "1.8k",
-  },
-  {
-    id: 6,
-    name: "SADISM",
-    icon: "/images/restraints/sadism.png",
-    coinMin: "+8",
-    level: 1,
-    cost: "1.8k",
-  },
-];
-
-const suprUpgrade = [
-  {
-    id: 1,
-    name: "SUPR HELMET",
-    icon: "/images/suprUpgrade/helmet.png",
-    coinMin: "+6",
-    level: 1,
-    cost: "1.8k",
-    quote: "honesty is the key",
-  },
-  {
-    id: 2,
-    name: "SUPR GLOVES",
-    icon: "/images/suprUpgrade/gloves.png",
-    coinMin: "+11",
-    level: 1,
-    cost: "2.9k",
-  },
-  {
-    id: 3,
-    name: "SUPR GOGGLES",
-    icon: "/images/suprUpgrade/goggles.png",
-    coinMin: "+8",
-    level: 1,
-    cost: "1.8k",
-  },
-  {
-    id: 4,
-    name: "SUPR WATCH",
-    icon: "/images/suprUpgrade/Watch.png",
-    coinMin: "+18",
-    level: 1,
-    cost: "1.7k",
-  },
-  {
-    id: 5,
-    name: "SUPR SHOES",
-    icon: "/images/suprUpgrade/Shoes.png",
-    coinMin: "+11",
-    level: 1,
-    cost: "1.6k",
-  },
-];
 
 export default function Upgrade() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("ENHANCEMENT");
   const [selectedItem, setSelectedItem] = useState(null);
+  const [enhancements, setEnhancements] = useState([]);
+  const [restraints, setRestraints] = useState([]);
+  const [suprUpgrade, setSuprUpgrade] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [userId, setUserId] = useState(null);
 
+  useEffect(() => {
+    // Retrieve userId from localStorage
+    const storedUserId = localStorage.getItem("userId");
+    setUserId(storedUserId);
+
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      // Fetch enhancements data
+      const enhancementsResponse = await fetch(
+        "http://localhost:8080/get/all/upgrade"
+      );
+      const enhancementsData = await enhancementsResponse.json();
+      console.log("Enhancements Data:", enhancementsData);
+      setEnhancements(enhancementsData[0]?.ENHANCEMENT || []);
+
+      // Fetch restraints data
+      const restraintsResponse = await fetch(
+        "http://localhost:8080/get/all/restrint"
+      );
+      const restraintsData = await restraintsResponse.json();
+      setRestraints(restraintsData[0]?.RESTRAINTS || []);
+
+      // Fetch SUPR upgrades data
+      const suprUpgradeResponse = await fetch(
+        "http://localhost:8080/get/all/supergrade"
+      );
+      const suprUpgradeData = await suprUpgradeResponse.json();
+      console.log("SUPRUPGRADE Data:", suprUpgradeData); // Debugging line
+
+      if (Array.isArray(suprUpgradeData)) {
+        // Assuming SUPRUPGRADE data is in the first object of the array
+        setSuprUpgrade(suprUpgradeData[0]?.SUPRUPGRADE || []);
+      } else {
+        setSuprUpgrade([]);
+      }
+
+      setLoading(false);
+    } catch (err) {
+      setError("Failed to load data.");
+      setLoading(false);
+    }
+  };
+
+  const handleUpgradeClick = async () => {
+    if (!userId || !selectedItem) return;
+
+    try {
+      const upgradeId = "66d7368365a71a07bd6b1a67"; // Ensure this ID is available
+      const enhancementId = selectedItem._id; // Use selectedItem._id for enhancementId
+
+      // Ensure coinMin is an integer
+      const coinMinAsInteger = Math.floor(selectedItem.coinMin);
+
+      // Update user coin
+      const coinResponse = await fetch(
+        "http://localhost:8080/user/update/coin",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId,
+            coinsPerMinute: coinMinAsInteger,
+          }),
+        }
+      );
+
+      if (!coinResponse.ok) {
+        throw new Error("Failed to update coin.");
+      }
+      // Call the second API to update the enhancement
+      const upgradeResponse = await fetch(
+        `http://localhost:8080/update/upgrade/${upgradeId}/${enhancementId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            level: selectedItem.level,
+            cost: selectedItem.cost,
+            coinMin: coinMinAsInteger, // Use the integer value here
+          }),
+        }
+      );
+
+      if (!upgradeResponse.ok) {
+        throw new Error("Failed to update upgrade.");
+      }
+
+      // Handle success
+      console.log("Upgrade and coin updated successfully.");
+      fetchData(); // Refresh the data to reflect changes
+      setSelectedItem(null); // Close the pop-up
+    } catch (error) {
+      console.error("Error updating coin and upgrade:", error);
+    }
+  };
   const renderDivs = () => {
     let itemsToRender;
 
@@ -210,13 +135,15 @@ export default function Upgrade() {
             ? styles.suprDivContainer
             : styles.divContainer
         }
-        onClick={() => setSelectedItem(item)}
+        onClick={() => {
+          console.log("Selected Item:", item);
+          setSelectedItem(item);
+        }}
       >
         <div className={styles.itemHeader}>
           <p className={styles.itemName}>{item.name}</p>
         </div>
 
-        {/* Different content structure for SUPR UPGRADE */}
         {activeTab === "SUPR UPGRADE" ? (
           <div className={styles.suprContentContainer}>
             <div className={styles.suprLeftContent}>
@@ -298,7 +225,6 @@ export default function Upgrade() {
       <div className={styles.divsContainer}>{renderDivs()}</div>
       <Footer />
       {/* Pop-up Modal */}
-      // Inside the return statement where you define the Pop-up Modal
       {selectedItem && (
         <div
           className={styles.popUpOverlay}
@@ -354,6 +280,10 @@ export default function Upgrade() {
             <button
               className={styles.upgradeButton}
               style={{ backgroundColor: "#FF7500", color: "black" }}
+              onClick={() => {
+                console.log("Upgrade button clicked");
+                handleUpgradeClick(); // Call handleUpgradeClick function
+              }}
             >
               UPGRADE
             </button>

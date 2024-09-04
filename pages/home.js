@@ -19,10 +19,8 @@ export default function Home() {
     setIsSettingsOpen((prev) => !prev);
   };
 
-  // Function to handle tap and show the coin image
   const handlePageTap = (e) => {
     const target = e.target;
-
     const isOnAvatar = target.classList.contains(styles.characterImage);
     const isOnBackground = target.classList.contains(styles.pageContainer);
 
@@ -34,10 +32,9 @@ export default function Home() {
       setTimeout(() => setCoinPosition(null), 1000);
     }
   };
-  ///////////////////////////////////////////////// fisrt fifty populate usefeffect /////////////////////////////////////////////
+
   useEffect(() => {
     const isFirstFifty = true;
-
     if (isFirstFifty) {
       setIsFirstFiftyOpen(true);
     }
@@ -76,6 +73,11 @@ export default function Home() {
 
           const fetchedCoinsPerMinute = response.data.user.coinsPerMinute || 0;
           setCoinsPerMinute(fetchedCoinsPerMinute);
+
+          // Correctly set coinsEarnedToday
+          const fetchedCoinsEarnedToday =
+            Number(response.data.user.coinsEarnedToday) || 0;
+          setCoinsEarnedToday(fetchedCoinsEarnedToday);
         } else {
           console.warn("User ID not found in localStorage");
         }
@@ -87,19 +89,37 @@ export default function Home() {
     fetchData();
   }, []);
 
-  // Update coins and coinsEarnedToday every minute
   useEffect(() => {
-    const updateCoins = () => {
-      setCoins((prevCoins) => prevCoins + coinsPerMinute);
-      setCoinsEarnedToday(
-        (prevCoinsEarned) => prevCoinsEarned + coinsPerMinute
-      );
+    const updateCoins = async () => {
+      try {
+        const userId = localStorage.getItem("userId");
+        if (userId) {
+          // Using functional state updates to avoid stale closure issues
+
+          setCoinsEarnedToday((prevCoinsEarned) => {
+            const newCoinsEarnedToday = prevCoinsEarned + coinsPerMinute;
+            // Send PUT request to update coins earned today
+            axios
+              .put(`http://localhost:8080/update/coins/earntoday/${userId}`, {
+                coinsEarnedToday: newCoinsEarnedToday,
+              })
+              .catch((error) => {
+                console.error("Error updating coins earned today:", error);
+              });
+            return newCoinsEarnedToday;
+          });
+        } else {
+          console.warn("User ID not found in localStorage");
+        }
+      } catch (error) {
+        console.error("Error updating coins:", error);
+      }
     };
 
     const intervalId = setInterval(updateCoins, 60000); // Update every minute
 
-    return () => clearInterval(intervalId); // Cleanup on unmount
-  }, [coinsPerMinute]);
+    return () => clearInterval(intervalId);
+  }, [coinsPerMinute]); // Removed coinsEarnedToday from dependency array
 
   // Update timer
   useEffect(() => {
@@ -114,7 +134,7 @@ export default function Home() {
     const intervalId = setInterval(updateTimer, 1000);
     updateTimer();
 
-    return () => clearInterval(intervalId);
+    return () => clearInterval(intervalId); // Cleanup on unmount
   }, []);
 
   const handleCharacterImageClick = async () => {
@@ -125,14 +145,9 @@ export default function Home() {
         return;
       }
 
-      // Optional: Add request body if required by your server
-      const requestBody = {}; // Replace with actual data if needed
-
       const response = await axios.put(
-        `http://localhost:8080/update/coin/${userId}`,
-        requestBody
+        `http://localhost:8080/update/coin/${userId}`
       );
-
       if (response.status === 200) {
         const updatedUser = response.data.updatedUser;
         if (updatedUser) {
@@ -145,15 +160,10 @@ export default function Home() {
           console.error("Updated user data is missing in the response");
         }
       } else {
-        console.error(
-          `Error updating coins: ${response.status} ${response.statusText}`
-        );
+        console.error("Error updating coins:", response.statusText);
       }
     } catch (error) {
-      console.error(
-        "Error updating coins:",
-        error.response ? error.response.data : error.message
-      );
+      console.error("Error updating coins:", error);
     }
   };
 
@@ -243,8 +253,10 @@ export default function Home() {
         </div>
       </div>
 
-      <Footer />
+      {isSettingsOpen && <div className={styles.settingsModal}>Settings</div>}
 
+      {isFirstFiftyOpen && <FirstFifty />}
+      <Footer />
       {isSettingsOpen && (
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
