@@ -125,6 +125,7 @@ export default function Home() {
                   coinsEarnToday: newCoinsEarnedToday,
                 }
               )
+              /////////////////////////////////////////////
               .catch((error) => {
                 console.error("Error updating coins earned today:", error);
               });
