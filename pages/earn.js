@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import styles from "../styles/earn.module.css";
 import Footer from "./footer";
 import { useRouter } from "next/router";
-import WatchVideos from "../pages/watchVideos";
-import SubscribePage from "../pages/watchVideos";
-import TelegramPage from "../pages/telegram";
-import InstagramPage from "../pages/instagram";
-import TwitterPage from "../pages/twitter";
-import DailyReward from "../pages/daily-reward"; // Import the DailyReward component
+import WatchVideos from "./watchVideos";
+import SubscribePage from "./youtube";
+import TelegramPage from "./telegram";
+import InstagramPage from "./instagram";
+import TwitterPage from "./twitter";
+import DailyReward from "./daily-reward"; // Import the DailyReward component
 
 export default function Earn() {
   const router = useRouter();
@@ -69,7 +69,10 @@ export default function Earn() {
         <img src="/dollar-white.png" className={styles.dollarIcon} />
       </div>
       {/* //////////////////////////////////////////////////////////////////// */}
-      <div className={styles.airdropContainer}>
+      <div
+        className={styles.airdropContainer}
+        onClick={() => window.open("https://shorturl.at/c8L4l")}
+      >
         <img
           src="/youtube-icon-earn.png"
           alt="YouTube Icon"
@@ -80,19 +83,15 @@ export default function Earn() {
       <p className={styles.noteText}>
         NOTE: PLEASE SUBMIT YOUR DETAILS HERE TO BE ELIGIBLE FOR AIRDROP
       </p>
-      <div className={styles.tasksContainer}>
+      {/*will add later  */}
+      {/* <div className={styles.tasksContainer}>
         <p className={styles.taskLabel}>
-          <span className={styles.orangeText}>SUPRHUMAN</span> YOUTUBE CHANNEL
-          TASKS
+          <span className={styles.orangeText}>SUPRHUMAN</span> YOUTUBE CHANNEL TASKS
         </p>
 
-        {youtubeTasks.map((task) => (
+        {youtubeTasks.map(task => (
           <div key={task.id} className={styles.task}>
-            <img
-              src="/youtube.png"
-              alt="YouTube Icon"
-              className={styles.taskIcon}
-            />
+            <img src="/youtube.png" alt="YouTube Icon" className={styles.taskIcon} />
             <span className={styles.taskTitle}>{task.title}</span>
             <img
               src="/arrow-orange.png"
@@ -102,44 +101,37 @@ export default function Earn() {
             />
           </div>
         ))}
-      </div>
+      </div> */}
       <div className={styles.tasksContainer}>
         <p className={styles.taskLabel}>
           <span className={styles.orangeText}>SUPR</span> TASKS
         </p>
 
-        {/* Daily Reward Task */}
-        <div className={styles.task}>
-          <img
-            src="/daily-reward.png"
-            alt="Daily Reward Icon"
-            className={styles.taskIcon}
-          />
+        {/* will add later
+         */}
+        {/* <div className={styles.task}>
+          <img src="/daily-reward.png" alt="Daily Reward Icon" className={styles.taskIcon} />
           <span className={styles.taskTitle}>DAILY REWARD</span>
           <img
             src="/arrow-orange.png"
             alt="Arrow"
             className={styles.arrowIcon}
-            onClick={() => setDailyRewardOpen(true)} // Open the DailyReward pop-up
+            onClick={() => setDailyRewardOpen(true)}
           />
-        </div>
+        </div> */}
 
-        <div className={styles.task}>
-          <img
-            src="/youtube.png"
-            alt="YouTube Icon"
-            className={styles.taskIcon}
-          />
-          <span className={styles.taskTitle}>
-            SUBSCRIBE TO OUR YOUTUBE CHANNERL
-          </span>
+        {/* will add later */}
+
+        {/* <div className={styles.task}>
+          <img src="/youtube.png" alt="YouTube Icon" className={styles.taskIcon} />
+          <span className={styles.taskTitle}>SUBSCRIBE TO OUR YOUTUBE CHANNEL</span>
           <img
             src="/arrow-orange.png"
             alt="Arrow"
             className={styles.arrowIcon}
             onClick={() => setSubscribeOpen(true)} // Open the Subscribe pop-up
           />
-        </div>
+        </div> */}
 
         <div className={styles.task}>
           <img
@@ -156,12 +148,10 @@ export default function Earn() {
           />
         </div>
 
-        <div className={styles.task}>
-          <img
-            src="/instagram.png"
-            alt="Instagram Icon"
-            className={styles.taskIcon}
-          />
+        {/* will add later */}
+
+        {/* <div className={styles.task}>
+          <img src="/instagram.png" alt="Instagram Icon" className={styles.taskIcon} />
           <span className={styles.taskTitle}>FOLLOW OUR INSTAGRAM</span>
           <img
             src="/arrow-orange.png"
@@ -169,7 +159,7 @@ export default function Earn() {
             className={styles.arrowIcon}
             onClick={() => setInstagramOpen(true)} // Open the Instagram pop-up
           />
-        </div>
+        </div> */}
 
         <div className={styles.task}>
           <img
@@ -186,7 +176,6 @@ export default function Earn() {
           />
         </div>
 
-        {/* New Invite More Task */}
         <div className={styles.task}>
           <img
             src="/invite-more.png"
@@ -200,7 +189,7 @@ export default function Earn() {
             src="/arrow-orange.png"
             alt="Arrow"
             className={styles.arrowIcon}
-            onClick={() => setInviteMoreOpen(true)} // Open the Invite More pop-up
+            onClick={() => router.push("friends")}
           />
         </div>
       </div>
@@ -215,8 +204,6 @@ export default function Earn() {
         <DailyReward onClose={handleClosePopUp} currentDay={1} />
       )}{" "}
       {/* New DailyReward Pop-up */}
-      {isInviteMoreOpen && <InviteMore onClose={handleClosePopUp} />}{" "}
-      {/* New InviteMore Pop-up */}
       {/* /////////////////////////////////////////////////////////////////////////////////// */}
       {isSettingsOpen && (
         <div className={styles.modalOverlay}>

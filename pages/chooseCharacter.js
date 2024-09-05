@@ -40,7 +40,7 @@ export default function ChooseCharacter() {
 
     try {
       const response = await fetch(
-        `http://88.222.242.108:8080/update/user/${userId}`,
+        `http://localhost:8081/update/user/${userId}`,
         {
           method: "PUT",
           headers: {

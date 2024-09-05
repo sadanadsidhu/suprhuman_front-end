@@ -14,9 +14,7 @@ export default function Stats() {
     // Fetch the number of SuprHumans from the API
     const fetchSuprHumans = async () => {
       try {
-        const response = await axios.get(
-          "http://88.222.242.108:8080/get/all/user"
-        );
+        const response = await axios.get("http://localhost:8081/get/all/user");
         setSuprHumans(response.data.length); // Set the number of SuprHumans based on the length of the response data
       } catch (error) {
         console.error("Error fetching SuprHumans:", error);
@@ -31,7 +29,7 @@ export default function Stats() {
       if (userId) {
         try {
           const response = await axios.get(
-            `http://88.222.242.108:8080/get/user/${userId}`
+            `http://localhost:8081/get/user/${userId}`
           );
           console.log("User code response:", response.data); // Debug log
 
@@ -64,9 +62,10 @@ export default function Stats() {
 
   return (
     <div className={styles.pageContainer}>
-     <div className={styles.header}>
+      <div className={styles.header}>
         <h1 className={styles.heading}>
-          <span className={styles.supr}>SUPR</span><span className={styles.human}>HUMAN</span>
+          <span className={styles.supr}>SUPR</span>
+          <span className={styles.human}>HUMAN</span>
         </h1>
         <img
           src="/settings.png"
@@ -122,40 +121,49 @@ export default function Stats() {
       {isSettingsOpen && (
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
-            <button className={styles.closeButton} onClick={toggleSettingsModal}>
+            <button
+              className={styles.closeButton}
+              onClick={toggleSettingsModal}
+            >
               <img src="/cross.png" alt="Close" />
             </button>
             <div className={styles.formContainer}>
               <form>
-                <label htmlFor="name" className={styles.label}>NAME</label>
+                <label htmlFor="name" className={styles.label}>
+                  NAME
+                </label>
                 <input
                   type="text"
                   id="name"
                   placeholder="NAME"
                   className={styles.inputField}
                 />
-                
-                <label htmlFor="gender" className={styles.label}>GENDER</label>
-                <select
-                  id="gender"
-                  className={styles.selectField}
-                >
-                  <option value="" disabled hidden>SELECTION</option>
+
+                <label htmlFor="gender" className={styles.label}>
+                  GENDER
+                </label>
+                <select id="gender" className={styles.selectField}>
+                  <option value="" disabled hidden>
+                    SELECTION
+                  </option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="other">Other</option>
                 </select>
 
-                <label htmlFor="country" className={styles.label}>COUNTRY</label>
-                <select
-                  id="country"
-                  className={styles.selectField}
-                >
-                  <option value="" disabled hidden>SELECTION</option>
+                <label htmlFor="country" className={styles.label}>
+                  COUNTRY
+                </label>
+                <select id="country" className={styles.selectField}>
+                  <option value="" disabled hidden>
+                    SELECTION
+                  </option>
                   {/* Add country options here */}
                 </select>
 
-                <label htmlFor="email" className={styles.label}>EMAIL</label>
+                <label htmlFor="email" className={styles.label}>
+                  EMAIL
+                </label>
                 <input
                   type="email"
                   id="email"
