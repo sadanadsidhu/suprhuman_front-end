@@ -1,10 +1,9 @@
-// telegram.js
 import React from 'react';
-import styles from '../styles/telegram.module.css';
+import styles from '../styles/earnFollow.module.css';
 
 const TelegramPage = ({ onClose }) => {
   const handleButtonClick = () => {
-    window.location.href = 'https://t.me/your_channel'; // Replace with your actual Telegram channel URL
+    window.location.href = 'https://t.me/suprhumanofficial';
   };
 
   return (
@@ -14,10 +13,10 @@ const TelegramPage = ({ onClose }) => {
         <button className={styles.closeButton} onClick={onClose}>X</button>
 
         {/* Telegram Icon */}
-        <img src="/telegram.png" alt="Telegram" className={styles.telegramIcon} />
+        <img src="/telegram.png" alt="Telegram" className={styles.icon} />
 
         {/* Text Content */}
-        <p className={styles.text}>JOIN OUR TELEGRAM CHANNEL</p>
+        <p className={styles.text}>JOIN OUR <br />TELEGRAM CHANNEL</p>
 
         {/* Check Button */}
         <button className={styles.checkButton} onClick={handleButtonClick}>

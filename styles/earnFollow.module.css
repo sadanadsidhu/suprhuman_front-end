@@ -18,10 +18,10 @@
   /* padding: 5px; */
   border-radius: 10px;
   box-shadow: 0 0 4px #FF7500; /* Orange shadow */
-  width: 300px;
+  width: 15rem;
   text-align: center;
   font-family: 'JetBrains Mono', monospace;
-  height: 300px;
+  height: 17rem;
 }
 
 .closeButton {
@@ -35,7 +35,7 @@
   cursor: pointer;
 }
 
-.youtubeIcon {
+.icon {
   width: 60px;
   margin: 20px;
   margin-top: 30px;
@@ -45,7 +45,7 @@
   color: white; 
   margin: 20px 0;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 20px;
   font-family: 'JetBrains Mono', monospace;
 }
@@ -54,12 +54,12 @@
   background-color: #FF7500; /* Orange color */
   color: black;
   border: none;
-  padding: 10px 20px;
+  padding: 8px;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 18px;
-  width: 250px;
+  font-size: 0.8rem;
+  width: 70%;
   margin-top: 30px;
   box-shadow: 0 0 4px #FF7500;
   font-weight: 900;

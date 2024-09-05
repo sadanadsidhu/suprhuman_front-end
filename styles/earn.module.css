@@ -75,15 +75,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 5rem;
-    height: 5rem;
+    width: 5.4rem;
+    height: 5.4rem;
     margin-top: 0.1rem;
     box-shadow: 0 0 1.7rem #FF7500;
   }
   
   .dollarIcon {
-    width: 1.4rem;
-    height: 2.3rem;
+    width: 2rem;
+    height: 2.8rem;
   }
 
 .airdropContainer {
@@ -98,8 +98,8 @@
 }
 
 .airdropIcon {
-    width: 45px;
-    height: 35px;
+    width: 2.5rem;
+    height: 2.2rem;
     margin-right: 10px;
 }
 
@@ -126,7 +126,7 @@
 
 .taskLabel {
     color: #ffffff;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     margin-bottom: 11px;
     font-family: 'JetBrains Mono', monospace;
     text-align: left;
@@ -136,7 +136,7 @@
 .task {
     background-color: #000000;
     border: 1px solid #FF7500;
-    padding: 10px;
+    padding: 0.5rem;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -146,8 +146,8 @@
 }
 
 .taskIcon {
-    width: 20px;
-    height: 20px;
+    width: 1.7rem;
+    height: 1.5rem;
     margin-right: 10px;
 }
 
@@ -452,33 +452,26 @@
     .pageContainer{
       padding-bottom: 8rem;
     }
-
     .heading{
         font-size: 1.86rem;
     }
-
     .airdropContainer{
-        width: 73.2%;
+        width: 74%;
         margin-top: 3.5rem;
     }
-
     .noteText{
-      font-size: 0.52rem;
+      font-size: 0.45rem;
+      font-weight: 700;
     }
-
     .tasksContainer{
         width: 88%;
     }
-
-
     .modalContent{
       width: 80%;
     }
-  
     .inputField,.selectField{
       width: 93%;
     }
-  
     .actionButton1,.actionButton2{
       width: 93%;
     }

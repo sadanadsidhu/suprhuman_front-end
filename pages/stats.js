@@ -64,16 +64,15 @@ export default function Stats() {
 
   return (
     <div className={styles.pageContainer}>
-      <div className={styles.header}>
+     <div className={styles.header}>
         <h1 className={styles.heading}>
-          <span className={styles.supr}>SUPR</span>
-          <span className={styles.human}>HUMAN</span>
+          <span className={styles.supr}>SUPR</span><span className={styles.human}>HUMAN</span>
         </h1>
         <img
           src="/settings.png"
           alt="Settings"
           className={styles.settingsIcon}
-          onClick={() => router.push("/settings")}
+          onClick={toggleSettingsModal}
         />
       </div>
 
@@ -120,6 +119,62 @@ export default function Stats() {
       </div>
 
       <Footer />
+      {isSettingsOpen && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modalContent}>
+            <button className={styles.closeButton} onClick={toggleSettingsModal}>
+              <img src="/cross.png" alt="Close" />
+            </button>
+            <div className={styles.formContainer}>
+              <form>
+                <label htmlFor="name" className={styles.label}>NAME</label>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="NAME"
+                  className={styles.inputField}
+                />
+                
+                <label htmlFor="gender" className={styles.label}>GENDER</label>
+                <select
+                  id="gender"
+                  className={styles.selectField}
+                >
+                  <option value="" disabled hidden>SELECTION</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+
+                <label htmlFor="country" className={styles.label}>COUNTRY</label>
+                <select
+                  id="country"
+                  className={styles.selectField}
+                >
+                  <option value="" disabled hidden>SELECTION</option>
+                  {/* Add country options here */}
+                </select>
+
+                <label htmlFor="email" className={styles.label}>EMAIL</label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="EMAIL"
+                  className={styles.inputField}
+                />
+
+                <button type="button" className={styles.actionButton1}>
+                  CONNECT WALLET
+                </button>
+                <button type="button" className={styles.actionButton2}>
+                  CHANGE CHARACTER
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* ///////////////////////////////////////////////////////////////////////////// */}
     </div>
   );
 }

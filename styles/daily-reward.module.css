@@ -17,7 +17,7 @@
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 0 15px #FF7500;
-    width: 22rem;
+    width: 18rem;
     text-align: center;
   }
   
@@ -35,9 +35,9 @@
   .heading {
     color: white;
     margin-top: -5px;
-    font-size: 21px;
-    font-weight: 500;
-    margin-bottom: 50px;
+    font-size: 1rem;
+    font-weight: 900;
+    margin-bottom: 1.7rem;
     font-family: 'JetBrains Mono', monospace;
   }
   
@@ -45,12 +45,12 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-gap: 5px;
-    margin-bottom: 50px;
+    margin-bottom: 2.4rem;
   }
   
   .dayDiv {
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 2rem;
+    height: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,7 +58,7 @@
     border-radius: 100%;
     color: #FF7500;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 16px;
+    font-size: 0.8rem;
   }
   
   .activeDay {
@@ -70,13 +70,14 @@
     background-color: #FF7500;
     color: black;
     border: none;
-    margin-bottom: 30px;
-    padding: 10px 5px;
+    margin-top: -1rem;
+    margin-bottom: 0.5rem;
+    padding: 10px 1px;
     border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
-    font-size: 18px;
-    width: 94%;
+    font-weight: 900;
+    font-size: 0.8rem;
+    width: 80%;
     box-shadow: 0 0 5px #FF7500;
     font-family: 'JetBrains Mono', monospace;
   }
