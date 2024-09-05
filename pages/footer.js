@@ -133,6 +133,7 @@ const footerStyle = {
   position: 'fixed',
   bottom: 0,
   width: '100%',
+  height:'rem',
   borderTop: '1px solid orange',
   boxShadow: '0 0 5px #61440efc',
 };
@@ -149,18 +150,18 @@ const iconContainerStyle = {
   alignItems: 'center',
   cursor: 'pointer',
   borderRadius: '8px',
-  width:'50px'
+  width:'4.8rem'
 };
 
 const iconStyle = {
   width: '25px', // Adjust size as needed
-  height: '20px',
+  height: '1.3rem',
   marginTop: '5px',
 };
 
 const textStyle = {
   color: 'white',
-  fontSize: '10px', // Reduced font size
+  fontSize: '0.7rem', // Reduced font size
   marginTop: '3px',
 };
 
@@ -171,8 +172,8 @@ const homeContainerStyle = {
 };
 
 const homeIconStyle = {
-  width: '75px', // Size for the home icon
-  height: '75px',
+  width: '5rem', // Size for the home icon
+  height: '5rem',
 };
 
 export default Footer;

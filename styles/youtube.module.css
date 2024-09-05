@@ -14,12 +14,13 @@
 .subscribeBox {
   position: relative;
   background-color: black;
-  border: 2px solid #FF7500; /* Orange border */
-  padding: 20px;
+  border: 1px solid #FF7500; /* Orange border */
+  /* padding: 5px; */
   border-radius: 10px;
   box-shadow: 0 0 4px #FF7500; /* Orange shadow */
   width: 300px;
   text-align: center;
+  font-family: 'JetBrains Mono', monospace;
   height: 300px;
 }
 
@@ -36,12 +37,14 @@
 
 .youtubeIcon {
   width: 60px;
-  margin: 20px auto;
+  margin: 20px;
+  margin-top: 30px;
 }
 
 .text {
   color: white; 
   margin: 20px 0;
+  font-weight: 500;
   font-size: 16px;
   line-height: 20px;
   font-family: 'JetBrains Mono', monospace;
@@ -55,10 +58,12 @@
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
   width: 250px;
   margin-top: 30px;
   box-shadow: 0 0 4px #FF7500;
+  font-weight: 900;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .checkButton:hover {

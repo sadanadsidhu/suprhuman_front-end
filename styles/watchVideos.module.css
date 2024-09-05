@@ -18,8 +18,8 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 4px #FF7500;
-    width: 320px;
-    height: 400px;
+    width: 22rem;
+    height: 32rem;
     text-align: center;
     margin-top: 300px;
   }
@@ -44,8 +44,8 @@
     border: 2px solid #FF7500;
     margin-top: 10px;
     margin-bottom: 20px;
-    height: 200px;
-    width: 320px;
+    height: 12rem;
+    width: 19rem;
     border-radius: 5px;
   }
   
@@ -63,7 +63,8 @@
     cursor: pointer;
     font-weight: bold;
     font-size: 16px;
-    width: 250px;
+    width: 15rem;
+    margin-top: 2rem;
     box-shadow: 0 0 5px #FF7500;
     font-family: 'JetBrains Mono', monospace;
   }

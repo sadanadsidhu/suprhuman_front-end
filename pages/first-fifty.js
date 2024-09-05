@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/fisrt-fifty.module.css";
+import styles from "../styles/first-fifty.module.css";
 
 const FirstFifty = ({ onClose }) => {
   return (

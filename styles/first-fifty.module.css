@@ -18,8 +18,8 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 5px #FF7500; /* Orange shadow */
-    width: 250px;
-    height: 160px;
+    width: 23rem;
+    height: 14rem;
     text-align: center;
   }
   
@@ -27,13 +27,16 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    width: 20px; /* Adjust the size as needed */
-    height: 20px; /* Adjust the size as needed */
+    width: 2rem; /* Adjust the size as needed */
+    height: 2rem; /* Adjust the size as needed */
     cursor: pointer;
+    /* margin-bottom: 2rem; */
   }
   
   .message {
     color: #FF7500; /* Orange color */
-    font-size: 16px;
+    letter-spacing: 0.07rem;
+    font-size: 1.2rem;
     font-family: 'JetBrains Mono', monospace;
   }
+  

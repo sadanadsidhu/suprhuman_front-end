@@ -15,7 +15,7 @@
   position: relative;
   background-color: black;
   border: 2px solid #FF7500; /* Orange border */
-  padding: 20px;
+  /* padding: 20px; */
   border-radius: 10px;
   box-shadow: 0 0 15px #FF7500; /* Orange shadow */
   width: 300px;
@@ -35,15 +35,17 @@
 }
 
 .instagramIcon {
-  width: 60px;
-  margin: 20px auto;
+  width: 40px;
+  margin: 20px;
+  margin-top: 50px;
 }
 
 .text {
   color: white; 
-  margin: 20px 0;
   font-size: 16px;
   line-height: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
   font-family: 'JetBrains Mono', monospace;
 }
 
@@ -59,6 +61,8 @@
   width: 250px;
   margin-top: 30px;
   box-shadow: 0 0 3px #FF7500;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 30px;
 }
 
 .checkButton:hover {

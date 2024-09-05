@@ -6,8 +6,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  font-family: "JetBrains Mono", monospace;
-  padding-top: 30px; /* Adjust this value to decrease the top padding */
+  font-family: 'JetBrains Mono', monospace;
+  padding-top: 30px;
 }
 
 .heading {
@@ -15,85 +15,83 @@
   font-size: 43px;
   display: flex;
   justify-content: center;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 900;
   font-style: italic;
   margin-top: -3px;
 }
 
 .supr {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .human {
-  color: #ff7500;
+  color: #FF7500;
 }
 
 .formContainer {
   background-color: #000000;
-  padding: 20px;
+  padding: 2.5rem;
   border-radius: 7px;
   box-shadow: 0 0 20px #61440efc;
-  border: 2.3px solid #ff7500;
-  width: 68%;
+  border: 2.3px solid #FF7500;
+  width: 90%; /* Adjusted for smaller screens */
   max-width: 400px;
-  margin-bottom: 20px; /* Adds space between the form container and the button */
-  height: 400px;
+  margin-bottom: 20px;
+  height: auto; /* Allow height to adjust based on content */
   margin-top: 20px;
 }
 
 .label {
-  color: #ffffff;
-  font-size: 10px;
+  color: #FFFFFF;
+  font-size: 0.7rem;
   margin-bottom: 5px;
   display: block;
+  margin-top: 0.4rem;
 }
 
-.inputField,
-.selectField {
-  width: 87.2%;
-  padding: 10px;
+.inputField, .selectField {
+  width: 100%; /* Adjusted for smaller screens */
+  padding: 0.9rem;
   margin-bottom: 15px;
-  border: 2.7px solid #ff7500;
+  border: 2.7px solid #FF7500;
   background-color: #000000;
-  color: #ff7500;
+  color: #FF7500;
   border-radius: 5px;
   font-size: 10px;
 }
 
 /* Placeholder color for input fields */
 .inputField::placeholder {
-  color: #ff7500; /* Orange color for placeholders */
+  color: #FF7500;
 }
 
 /* Select Field Styling */
 .selectField {
-  width: 96%;
-  padding: 10px;
+  width: 100%; /* Adjusted for smaller screens */
+  padding: 0.8rem;
   margin-bottom: 15px;
-  border: 2.7px solid #ff7500;
+  border: 2.7px solid #FF7500;
   background-color: #000000;
-  color: #ff7500;
+  color: #FF7500;
   border-radius: 5px;
   font-size: 12px;
-  appearance: none; /* Removes the default arrow */
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  appearance: none;
   position: relative;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff7800d9"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff7800d9"><path d="M7 10l5 5 5-5z"/></svg>');
   background-repeat: no-repeat;
-  background-position: calc(100% - 10px) center; /* Adjusts arrow position */
-  background-size: 24px; /* Makes the arrow bigger */
+  background-position: calc(100% - 10px) center;
+  background-size: 24px;
 }
 
-/* Dropdown list styling */
 .selectField option {
-  background-color: #ff7800d9; /* Background color for dropdown options */
-  color: #000000; /* Font color for dropdown options */
-  font-weight: 700; /* Makes the font bolder */
+  background-color: #ff7800d9;
+  color: #000000;
+  font-weight: 700;
   border: none;
-  border-bottom: 1px solid #000000; /* Adds a thin black line between options */
-  padding: 8px 10px; /* Adds padding for spacing */
+  border-bottom: 1px solid #000000;
+  padding: 8px 10px;
+  width: 10%;
 }
 
 .selectField option:checked {
@@ -103,27 +101,27 @@
 
 /* Disclaimer styling */
 .disclaimer {
-  color: #ffffff;
-  font-size: 10px;
+  color: #FFFFFF;
+  font-size: 0.7rem;
   font-weight: 400;
   margin-bottom: 20px;
   margin-top: 30px;
-  font-family: "JetBrains Mono", monospace;
-  text-align: center; /* Centers the disclaimer text */
+  font-family: 'JetBrains Mono', monospace;
+  text-align: center;
 }
 
 .disclaimer strong {
-  color: #ff7500; /* Orange color for disclaimer heading */
-  display: block; /* Forces the disclaimer heading onto its own line */
-  margin-bottom: 1px; /* Adds space between the heading and the content */
+  color: #FF7500;
+  display: block;
+  margin-bottom: 1px;
 }
 
 /* Updated Next Button */
 .nextButton {
-  width: 50%; /* Matches the width of the form container */
+  width: 80%; /* Adjusted for smaller screens */
   max-width: 400px;
   padding: 15px;
-  background-color: #ff7500;
+  background-color: #FF7500;
   color: #000000;
   border: none;
   border-radius: 5px;
@@ -135,12 +133,90 @@
   box-shadow: 0 0 10px #61440efc;
   cursor: pointer;
   margin-top: 30px;
-  position: relative; /* Allows positioning of the arrow */
+  position: relative;
 }
 
 .nextButton .arrow {
   position: absolute;
   right: 10px;
-  width: 17px; /* Adjust size as needed */
-  height: auto; /* Maintain aspect ratio */
+  width: 17px;
+  height: auto;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .pageContainer{
+    padding-bottom: 3rem;
+  }
+  .heading {
+    font-size: 3.2rem;
+  }
+
+  .selectField,.inputField{
+    padding: 1.2rem;
+  }
+
+  .disclaimer{
+    font-size: 0.9rem;
+    margin-top: 2.8rem;
+  }
+
+  .formContainer {
+    margin-top: 1.4rem;
+    width: 100%;
+    height: 100vw;
+  }
+
+  .nextButton {
+    width: 60%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageContainer{
+    padding-bottom: 10rem;
+  }
+  .heading {
+    margin-top: 1rem;
+    font-size: 3.4rem;
+  }
+
+  .formContainer {
+    margin-top: 1.4rem;
+    width: 80%;
+    height: 130vw;
+  }
+
+  .nextButton {
+    width: 65%;
+    font-family:'jetbrains mono';
+    font-size: 1.6rem;
+    font-weight:900;
+    border-radius: 13px;
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .pageContainer{
+    padding-bottom: 5rem;
+  }
+  .heading {
+    font-size: 2.7rem;
+  }
+
+  .formContainer {
+    width: 82%;
+    height: 150vw;
+  }
+
+  .nextButton {
+    width: 65%;
+    font-family:'jetbrains mono';
+    font-size: 1.1rem;
+    font-weight:900;
+    border-radius: 10px;
+    padding: 0.8rem;
+  }
 }
