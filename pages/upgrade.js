@@ -26,7 +26,7 @@ export default function Upgrade() {
     try {
       // Fetch enhancements data
       const enhancementsResponse = await fetch(
-        "http://localhost:8081/get/all/upgrade"
+        "http://88.222.242.108:8080/get/all/upgrade"
       );
       const enhancementsData = await enhancementsResponse.json();
       console.log("Enhancements Data:", enhancementsData);
@@ -34,14 +34,14 @@ export default function Upgrade() {
 
       // Fetch restraints data
       const restraintsResponse = await fetch(
-        "http://localhost:8081/get/all/restrint"
+        "http://88.222.242.108:8080/get/all/restrint"
       );
       const restraintsData = await restraintsResponse.json();
       setRestraints(restraintsData[0]?.RESTRAINTS || []);
 
       // Fetch SUPR upgrades data
       const suprUpgradeResponse = await fetch(
-        "http://localhost:8081/get/all/supergrade"
+        "http://88.222.242.108:8080/get/all/supergrade"
       );
       const suprUpgradeData = await suprUpgradeResponse.json();
       console.log("SUPRUPGRADE Data:", suprUpgradeData); // Debugging line
@@ -68,7 +68,7 @@ export default function Upgrade() {
 
       // Update user coin
       const coinResponse = await fetch(
-        "http://localhost:8081/user/update/coin",
+        "http://88.222.242.108:8080/user/update/coin",
         {
           method: "PUT",
           headers: {
@@ -91,7 +91,7 @@ export default function Upgrade() {
         const enhancementId = selectedItem._id; // Use selectedItem._id for enhancementId
 
         const upgradeResponse = await fetch(
-          `http://localhost:8081/update/upgrade/${upgradeId}/${enhancementId}`,
+          `http://88.222.242.108:8080/update/upgrade/${upgradeId}/${enhancementId}`,
           {
             method: "PUT",
             headers: {
@@ -115,7 +115,7 @@ export default function Upgrade() {
         const specificRestrintId = selectedItem._id; // Specific RESTRAINTS item ID
 
         const restrintResponse = await fetch(
-          `http://localhost:8081/update/restrint/${restrintId}/${specificRestrintId}`,
+          `http://88.222.242.108:8080/update/restrint/${restrintId}/${specificRestrintId}`,
           {
             method: "PUT",
             headers: {
@@ -139,7 +139,7 @@ export default function Upgrade() {
         const specificSupergradeId = selectedItem._id; // Specific SUPRUPGRADE item ID
 
         const supergradeResponse = await fetch(
-          `http://localhost:8081/update/supergrad/${supergradeId}/${specificSupergradeId}`,
+          `http://88.222.242.108:8080/update/supergrad/${supergradeId}/${specificSupergradeId}`,
           {
             method: "PUT",
             headers: {
