@@ -113,7 +113,7 @@ export default function Stats() {
         </div>
       </div>
 
-      <div className={styles.airdropNoticeContainer}>
+      {/* <div className={styles.airdropNoticeContainer}>
         <p className={styles.airdropNotice}>
           AIRDROPS WILL BE ANNOUNCED
           <br />
@@ -121,7 +121,7 @@ export default function Stats() {
           <br />
           SUPR<span className={styles.highlight}>HUMANS</span>
         </p>
-      </div>
+      </div> */}
 
       <Footer />
       {isSettingsOpen && (
