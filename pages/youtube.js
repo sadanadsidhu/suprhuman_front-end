@@ -1,17 +1,19 @@
 // youtube.js
-import React from 'react';
-import styles from '../styles/youtube.module.css';
+import React from "react";
+import styles from "../styles/earnFollow.module.css";
 
 const SubscribePage = ({ onClose }) => {
   const handleButtonClick = () => {
-    window.location.href = 'https://www.example.com'; // Replace with your actual URL
+    window.location.href = "https://www.example.com"; // Replace with your actual URL
   };
 
   return (
     <div className={styles.overlay}>
       <div className={styles.subscribeBox}>
         {/* Close Button */}
-        <button className={styles.closeButton} onClick={onClose}>X</button>
+        <button className={styles.closeButton} onClick={onClose}>
+          X
+        </button>
 
         {/* YouTube Icon */}
         <img src="/youtube.png" alt="YouTube" className={styles.youtubeIcon} />

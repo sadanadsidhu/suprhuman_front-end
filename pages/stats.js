@@ -10,6 +10,12 @@ export default function Stats() {
   const [suprHumans, setSuprHumans] = useState(0);
   const [userCode, setUserCode] = useState(""); // Default code or placeholder
 
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+
+  const toggleSettingsModal = () => {
+    setIsSettingsOpen(!isSettingsOpen);
+  };
+
   useEffect(() => {
     // Fetch the number of SuprHumans from the API
     const fetchSuprHumans = async () => {
