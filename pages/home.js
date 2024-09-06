@@ -240,17 +240,6 @@ export default function Home() {
       return value; // No formatting for values less than 1000
     }
   };
-
-useEffect(() => {
-  // Disable scrolling on the body
-  document.body.style.overflow = 'hidden';
-
-  // Cleanup on component unmount
-  return () => {
-    document.body.style.overflow = 'auto';
-  };
-}, []);
-
   return (
   <div className={styles.pageContainer} onClick={handlePageTap}>
       <div className={styles.header}>
