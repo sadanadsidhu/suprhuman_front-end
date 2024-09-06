@@ -485,122 +485,92 @@ background-color: #FF7500;
   }
   }
  @media (max-width: 480px) {
-  .pageContainer {
-    width: 155%;
-    padding-bottom: 3rem;
-    position: fixed; 
-    top: 0;
-    left: 0;
-  }
-
-  .header {
-    margin-top: 1.3rem;
-    position: fixed; 
-    top: 0; 
-    width: 100%; 
-    z-index: 100; 
-  }
-
-  .heading {
-    font-size: 2.8rem;
-  }
-
-  .settingsIcon {
-    width: 2.8rem;
-    height: 2.8rem;
-  }
-
-  .superBoostContainer, .coinsPerMinContainer {
+    .pageContainer{
+      width: 155%;
+      padding-bottom:3rem;
+    }
+    .header{
+      margin-top: 1.3rem;
+    }
+    .heading{
+      font-size: 2.8rem;;
+    }
+    .settingsIcon{
+      width: 2.8rem;
+      height: 2.8rem;
+    }
+    .superBoostContainer, .coinsPerMinContainer {
     width: 14rem;
     padding: 0.5rem;
-    position: fixed; 
-    top: 5rem; 
   }
-
-  .superBoostIcon, .coinsPerMinIcon {
-    width: 4rem;
-    height: 4rem;
+    .superBoostIcon,.coinsPerMinIcon{
+      width: 4rem;
+      height: 4rem;
+    }
+    .superBoostLabel{
+      font-size: 0.9rem;
+      margin-right:2rem ;
+    }
+    .coinsPerMinLabel{
+      font-size: 0.85rem;
+      margin-left: 0.8rem;
+    }
+    .comingSoon{
+      font-size: 0.6rem;
+      margin-right: 2rem;
+    }
+    .superBoostIcon,.coinsPerMinIcon{
+      width: 3.01rem;
+      height: 3.01rem;
+    }
+    .boostContainer{
+      margin-top: 3.3rem;
+      /* font-size: 1rem; */
+      margin-left: -1.9rem;
+    }
+    .energyContainer{
+      margin-top: 3.2rem;
+      margin-right: -1.9rem;
+    }
+    .boostLabel,.energyLabel{
+      font-size: 1rem;
+    }
+    .energyValue{
+      font-size: 1rem;
+    }
+    .boostIcon{
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+    .characterContainer{
+      width: 73%;
+    }
+   
+    .characterImage {
+    height: 120vw; 
   }
-
-  .superBoostLabel {
-    font-size: 0.9rem;
-    margin-right: 2rem;
-  }
-
-  .coinsPerMinLabel {
-    font-size: 0.85rem;
-    margin-left: 0.8rem;
-  }
-
-  .comingSoon {
-    font-size: 0.6rem;
-    margin-right: 2rem;
-  }
-
-  .boostContainer {
-    margin-top: 3.3rem;
-    margin-left: -1.9rem;
-    position: fixed; 
-    bottom: 2rem; 
-    left: 1rem; 
-  }
-
-  .energyContainer {
-    margin-top: 3.2rem;
-    margin-right: -1.9rem;
-    position: fixed;
-    bottom: 2rem;
-    right: 1rem; 
-  }
-
-  .boostLabel, .energyLabel {
-    font-size: 1rem;
-  }
-
-  .energyValue {
-    font-size: 1rem;
-  }
-
-  .boostIcon {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  .characterContainer {
-    width: 73%;
-  }
-
-  .characterImage {
-    height: 120vw;
-  }
-
-  .coinsEarned {
-    margin-top: -6rem;
-    font-size: 1.3rem;
-  }
-
-  .valueContainer {
-    margin-left: 3.1rem;
-  }
-
-  .timeContainer {
-    margin-left: 1.3rem;
-    margin-top: 0.6rem;
-  }
-
-  .modalContent {
-    width: 80%;
-  }
-
-  .inputField, .selectField {
-    width: 93%;
-  }
-
-  .actionButton1, .actionButton2 {
-    width: 93%;
-  }
-}
-
+    
+    .coinsEarned{
+      margin-top: -6rem;
+      font-size: 1.3rem;
+    }
+    .valueContainer{
+      margin-left: 3.1rem;
+    }
+    .timeContainer{
+      margin-left: 1.3rem;
+      margin-top: 0.6rem;
+    }
+    .modalContent{
+      width: 80%;
+    }
+    .inputField,.selectField{
+      width: 93%;
+    }
+    .actionButton1,.actionButton2{
+      width: 93%;
+    }
+  } 
   @media (max-width: 425px) {
     .pageContainer{
       width: 155%;
