@@ -10,12 +10,14 @@ export default function Friends() {
   };
 
   const handleShare = () => {
+    const urlToShare = "http://www.suprhuman.tech"; // The URL you want to share
+
     if (navigator.share) {
       navigator
         .share({
           title: "Share This App",
           text: "Check out this amazing app!",
-          url: window.location.href,
+          url: urlToShare,
         })
         .then(() => {
           console.log("Thanks for sharing!");
@@ -23,9 +25,22 @@ export default function Friends() {
         .catch(console.error);
     } else {
       // Fallback for browsers that don't support the Web Share API
-      alert("Web Share API is not supported in your browser.");
+      const whatsappShareUrl = `https://api.whatsapp.com/send?text=Check out this amazing app: ${urlToShare}`;
+      const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        urlToShare
+      )}`;
+
+      const fallbackMessage = `
+        Web Share API is not supported in your browser.
+        You can manually share this link:
+        - WhatsApp: <a href="${whatsappShareUrl}" target="_blank">Share on WhatsApp</a>
+        - Facebook: <a href="${facebookShareUrl}" target="_blank">Share on Facebook</a>
+      `;
+
+      document.body.innerHTML += fallbackMessage; // Displaying the fallback message
     }
   };
+
   // Dummy data - Replace with real data from API or database
   const friends = [
     { id: 1, name: "YASHAS RAVIKUMAR", coins: "100K" },
