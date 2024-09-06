@@ -488,7 +488,7 @@ background-color: #FF7500;
   }
 
   @media (max-width: 480px) {
-  html, body {
+  body {
     overflow: hidden;
     height: 100%; 
   }
