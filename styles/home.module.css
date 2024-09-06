@@ -484,7 +484,6 @@ background-color: #FF7500;
     width: 93%;
   }
   }
-
   @media (max-width: 480px) {
   .pageContainer {
     width: 155%;
@@ -493,7 +492,6 @@ background-color: #FF7500;
     top: 0;
     left: 0;
   }
-
   .header {
     margin-top: 1.3rem;
     position: fixed; 
