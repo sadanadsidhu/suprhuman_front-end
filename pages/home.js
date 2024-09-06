@@ -14,6 +14,8 @@ export default function Home() {
   const [coinsPerMinute, setCoinsPerMinute] = useState(0);
   const [coinsEarnToday, setCoinsEarnedToday] = useState(0);
   const [isFirstFiftyOpen, setIsFirstFiftyOpen] = useState(false);
+  const [isEnergyIncreasing, setIsEnergyIncreasing] = useState(false);
+  const [previousEnergy, setPreviousEnergy] = useState(0);
 
   const toggleSettingsModal = () => {
     setIsSettingsOpen((prev) => !prev);
@@ -67,7 +69,7 @@ export default function Home() {
 
         if (userId) {
           const response = await axios.get(
-            `http://88.222.242.108:8080/get/user/${userId}`
+            `http://localhost:8080/get/user/${userId}`
           );
 
           const fetchedCoins = Number(response.data.user.signupCoin) || 0;
@@ -119,12 +121,9 @@ export default function Home() {
 
             // Send PUT request to update coins earned today
             axios
-              .put(
-                `http://88.222.242.108:8080/update/coins/earntoday/${userId}`,
-                {
-                  coinsEarnToday: newCoinsEarnedToday,
-                }
-              )
+              .put(`http://localhost:8080/update/coins/earntoday/${userId}`, {
+                coinsEarnToday: newCoinsEarnedToday,
+              })
               /////////////////////////////////////////////
               .catch((error) => {
                 console.error("Error updating coins earned today:", error);
@@ -161,6 +160,30 @@ export default function Home() {
     return () => clearInterval(intervalId); // Cleanup on unmount
   }, []);
 
+  useEffect(() => {
+    // Check if energy has stopped decreasing
+    if (energy.current >= previousEnergy) {
+      setIsEnergyIncreasing(true);
+    } else {
+      setIsEnergyIncreasing(false);
+    }
+
+    setPreviousEnergy(energy.current);
+  }, [energy.current]);
+
+  useEffect(() => {
+    if (isEnergyIncreasing) {
+      const intervalId = setInterval(() => {
+        setEnergy((prevEnergy) => {
+          const newEnergy = Math.min(prevEnergy.current + 3, prevEnergy.max);
+          return { ...prevEnergy, current: newEnergy };
+        });
+      }, 1000);
+
+      return () => clearInterval(intervalId);
+    }
+  }, [isEnergyIncreasing]);
+
   const handleCharacterImageClick = async () => {
     try {
       const userId =
@@ -171,7 +194,7 @@ export default function Home() {
       }
 
       const response = await axios.put(
-        `http://88.222.242.108:8080/update/coin/${userId}`
+        `http://localhost:8080/update/coin/${userId}`
       );
       if (response.status === 200) {
         const updatedUser = response.data.updatedUser;
@@ -192,6 +215,20 @@ export default function Home() {
     }
   };
 
+  // Function to format numbers with thousands separators
+  const formatNumberWithCommas = (num) => {
+    if (num === null || num === undefined) return "0";
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+  const formatNumber = (value) => {
+    if (value >= 1_000_000) {
+      return (value / 1_000_000).toFixed(1) + "m"; // 1.0m, 2.5m
+    } else if (value >= 1_000) {
+      return (value / 1_000).toFixed(1) + "k"; // 1.0k, 2.5k
+    } else {
+      return value; // No formatting for values less than 1000
+    }
+  };
   return (
     <div className={styles.pageContainer} onClick={handlePageTap}>
       <div className={styles.header}>
@@ -208,7 +245,7 @@ export default function Home() {
       </div>
 
       <div className={styles.coinsContainer}>
-        <p className={styles.coinsLabel}>{coins}</p>
+        <p className={styles.coinsLabel}>{formatNumberWithCommas(coins)}</p>
       </div>
 
       <div className={styles.characterContainer}>
@@ -239,7 +276,7 @@ export default function Home() {
           </div>
           <div className={styles.coinsPerMinTextContainer}>
             <p className={styles.coinsPerMinLabel}>COINS/MIN</p>
-            <p className={styles.coinsValue}>{coinsPerMinute}</p>
+            <p className={styles.coinsValue}>{formatNumber(coinsPerMinute)}</p>
           </div>
         </div>
 
@@ -270,7 +307,9 @@ export default function Home() {
         <p className={styles.coinsEarned}>COINS EARNED TODAY</p>
 
         <div className={styles.valueContainer}>
-          <p className={styles.coinsLabel2}>{coinsEarnToday}</p>
+          <p className={styles.coinsLabel2}>
+            {formatNumberWithCommas(coinsEarnToday)}
+          </p>
         </div>
 
         <div className={styles.timeContainer}>

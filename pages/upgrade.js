@@ -26,7 +26,7 @@ export default function Upgrade() {
     try {
       // Fetch enhancements data
       const enhancementsResponse = await fetch(
-        "http://88.222.242.108:8080/get/all/upgrade"
+        "http://localhost:8080/get/all/upgrade"
       );
       const enhancementsData = await enhancementsResponse.json();
       console.log("Enhancements Data:", enhancementsData);
@@ -34,14 +34,14 @@ export default function Upgrade() {
 
       // Fetch restraints data
       const restraintsResponse = await fetch(
-        "http://88.222.242.108:8080/get/all/restrint"
+        "http://localhost:8080/get/all/restrint"
       );
       const restraintsData = await restraintsResponse.json();
       setRestraints(restraintsData[0]?.RESTRAINTS || []);
 
       // Fetch SUPR upgrades data
       const suprUpgradeResponse = await fetch(
-        "http://88.222.242.108:8080/get/all/supergrade"
+        "http://localhost:8080/get/all/supergrade"
       );
       const suprUpgradeData = await suprUpgradeResponse.json();
       console.log("SUPRUPGRADE Data:", suprUpgradeData); // Debugging line
@@ -68,7 +68,7 @@ export default function Upgrade() {
 
       // Update user coin
       const coinResponse = await fetch(
-        "http://88.222.242.108:8080/user/update/coin",
+        "http://localhost:8080/user/update/coin",
         {
           method: "PUT",
           headers: {
@@ -91,7 +91,7 @@ export default function Upgrade() {
         const enhancementId = selectedItem._id; // Use selectedItem._id for enhancementId
 
         const upgradeResponse = await fetch(
-          `http://88.222.242.108:8080/update/upgrade/${upgradeId}/${enhancementId}`,
+          `http://localhost:8080/update/upgrade/${upgradeId}/${enhancementId}`,
           {
             method: "PUT",
             headers: {
@@ -115,7 +115,7 @@ export default function Upgrade() {
         const specificRestrintId = selectedItem._id; // Specific RESTRAINTS item ID
 
         const restrintResponse = await fetch(
-          `http://88.222.242.108:8080/update/restrint/${restrintId}/${specificRestrintId}`,
+          `http://localhost:8080/update/restrint/${restrintId}/${specificRestrintId}`,
           {
             method: "PUT",
             headers: {
@@ -139,7 +139,7 @@ export default function Upgrade() {
         const specificSupergradeId = selectedItem._id; // Specific SUPRUPGRADE item ID
 
         const supergradeResponse = await fetch(
-          `http://88.222.242.108:8080/update/supergrad/${supergradeId}/${specificSupergradeId}`,
+          `http://localhost:8080/update/supergrad/${supergradeId}/${specificSupergradeId}`,
           {
             method: "PUT",
             headers: {
@@ -165,6 +165,20 @@ export default function Upgrade() {
       setSelectedItem(null); // Close the pop-up
     } catch (error) {
       console.error("Error updating coin and selected upgrade:", error);
+    }
+  };
+
+  const formatNumber = (num) => {
+    if (num == null) {
+      return "0"; // Return 0 or any default value when num is null or undefined
+    }
+
+    if (num >= 1_000_000) {
+      return `${Math.floor(num / 1_000_000)}M`; // Millions
+    } else if (num >= 1_000) {
+      return `${Math.floor(num / 1_000)}K`; // Thousands
+    } else {
+      return num.toString(); // Less than 1000
     }
   };
 
@@ -215,7 +229,7 @@ export default function Upgrade() {
                 </div>
                 <div className={styles.costContainerSupr}>
                   <p>COST</p>
-                  <p>{item.cost}</p>
+                  <p>{formatNumber(item.cost)}</p>
                 </div>
               </div>
               <div className={styles.suprBottomRight}>

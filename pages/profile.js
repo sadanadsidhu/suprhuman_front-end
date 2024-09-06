@@ -36,7 +36,7 @@ export default function Profile() {
 
     try {
       const response = await axios.post(
-        "http://88.222.242.108:8080/user/register",
+        "http://localhost:8080/user/register",
         data
       );
 
