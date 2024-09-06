@@ -1,3 +1,7 @@
+body {
+    overflow: hidden;
+    height: 100%; 
+  }
 .pageContainer {
   width: 100%;
   min-height: auto;
@@ -488,11 +492,6 @@ background-color: #FF7500;
   }
 
   @media (max-width: 480px) {
-  body {
-    overflow: hidden;
-    height: 100%; 
-  }
-
   .pageContainer {
     width: 155%;
     padding-bottom: 3rem;
