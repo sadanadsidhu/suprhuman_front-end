@@ -416,15 +416,19 @@ export default function Home() {
         <FirstFifty onClose={() => setIsFirstFiftyOpen(false)} />
       )}
 
-      {coins.map((coin) => (
-        <img
-          key={coin.id}
-          src="/coins-per-min.png"
-          alt="Coin per Tap"
-          className={styles.coinPerTap}
-          style={{ top: coin.y, left: coin.x }}
-        />
-      ))}
+      {Array.isArray(coins) && coins.length > 0 ? (
+        coins.map((coin) => (
+          <img
+            key={coin.id}
+            src="/coins-per-min.png"
+            alt="Coin per Tap"
+            className={styles.coinPerTap}
+            style={{ top: coin.y, left: coin.x }}
+          />
+        ))
+      ) : (
+        <p>No coins to display</p> // Fallback when coins array is empty
+      )}
     </div>
   );
 }
