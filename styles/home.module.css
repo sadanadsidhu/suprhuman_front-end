@@ -1,7 +1,4 @@
-*{
-    overflow: hidden;
-    height: 100%; 
-  }
+
 .pageContainer {
   width: 100%;
   min-height: auto;
@@ -502,8 +499,8 @@ background-color: #FF7500;
 
   .header {
     margin-top: 1.3rem;
-    position: fixed; /* Fix position */
-    top: 0; /* Align it at the top */
+    position: fixed; 
+    top: 0; 
     width: 100%; 
     z-index: 100; 
   }
@@ -520,8 +517,8 @@ background-color: #FF7500;
   .superBoostContainer, .coinsPerMinContainer {
     width: 14rem;
     padding: 0.5rem;
-    position: fixed; /* Fix position */
-    top: 5rem; /* Adjust based on layout */
+    position: fixed; 
+    top: 5rem; 
   }
 
   .superBoostIcon, .coinsPerMinIcon {
@@ -547,17 +544,16 @@ background-color: #FF7500;
   .boostContainer {
     margin-top: 3.3rem;
     margin-left: -1.9rem;
-    position: fixed; /* Fix position */
-    bottom: 2rem; /* Place it near the bottom */
-    left: 1rem; /* Adjust horizontal positioning */
-  }
+    position: fixed; 
+    bottom: 2rem; 
+    left: 1rem; /
 
   .energyContainer {
     margin-top: 3.2rem;
     margin-right: -1.9rem;
-    position: fixed; /* Fix position */
-    bottom: 2rem; /* Place it near the bottom */
-    right: 1rem; /* Adjust horizontal positioning */
+    position: fixed;
+    bottom: 2rem;
+    right: 1rem; 
   }
 
   .boostLabel, .energyLabel {
