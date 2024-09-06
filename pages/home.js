@@ -252,7 +252,7 @@ useEffect(() => {
 }, []);
 
   return (
-    <div className= onClick{handlePageTap}>
+  <div className={styles.pageContainer} onClick={handlePageTap}>
       <div className={styles.header}>
         <h1 className={styles.heading}>
           <span className={styles.supr}>SUPR</span>
