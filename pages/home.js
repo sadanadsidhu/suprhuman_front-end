@@ -69,7 +69,7 @@ export default function Home() {
 
         if (userId) {
           const response = await axios.get(
-            `http://localhost:8080/get/user/${userId}`
+            `http://88.222.242.108:8080/get/user/${userId}`
           );
 
           const fetchedCoins = Number(response.data.user.signupCoin) || 0;
@@ -121,9 +121,12 @@ export default function Home() {
 
             // Send PUT request to update coins earned today
             axios
-              .put(`http://localhost:8080/update/coins/earntoday/${userId}`, {
-                coinsEarnToday: newCoinsEarnedToday,
-              })
+              .put(
+                `http://88.222.242.108:8080/update/coins/earntoday/${userId}`,
+                {
+                  coinsEarnToday: newCoinsEarnedToday,
+                }
+              )
               /////////////////////////////////////////////
               .catch((error) => {
                 console.error("Error updating coins earned today:", error);
@@ -194,7 +197,7 @@ export default function Home() {
       }
 
       const response = await axios.put(
-        `http://localhost:8080/update/coin/${userId}`
+        `http://88.222.242.108:8080/update/coin/${userId}`
       );
       if (response.status === 200) {
         const updatedUser = response.data.updatedUser;

@@ -20,7 +20,9 @@ export default function Stats() {
     // Fetch the number of SuprHumans from the API
     const fetchSuprHumans = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/get/all/user");
+        const response = await axios.get(
+          "http://88.222.242.108:8080/get/all/user"
+        );
         setSuprHumans(response.data.length); // Set the number of SuprHumans based on the length of the response data
       } catch (error) {
         console.error("Error fetching SuprHumans:", error);
@@ -35,7 +37,7 @@ export default function Stats() {
       if (userId) {
         try {
           const response = await axios.get(
-            `http://localhost:8080/get/user/${userId}`
+            `http://88.222.242.108:8080/get/user/${userId}`
           );
           console.log("User code response:", response.data); // Debug log
 
